@@ -22,6 +22,14 @@ pub struct RemoveOptions {
     item: String,
 }
 
+#[derive(StructOpt)]
+pub struct RandomNumberOptions {
+    #[structopt(long)]
+    pub low: i32,
+    #[structopt(long)]
+    pub high: i32,
+}
+
 pub fn add(folder: &str, args: &AddOptions) -> Result<()> {
     let path = build_path_from_item(folder, &args.item);
     if Path::new(&path).exists() {
