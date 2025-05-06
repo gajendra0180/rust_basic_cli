@@ -40,11 +40,14 @@ fn main() -> Result<()> {
         TodoCommand::Nested(args) => {
             match args {
                 RandomNumber::Print(args) => {
+                    let low = args.get_low();
+                    let high = args.get_high();
+
                     let mut rng = rand::rng();
-                    let random_number = rng.random_range(args.low..=args.high);
+                    let random_number = rng.random_range(low..=high);
                     println!(
                         "Random number between {} and {}: {}",
-                        args.low, args.high, random_number
+                        low, high, random_number
                     );
                 }
             }

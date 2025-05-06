@@ -25,9 +25,19 @@ pub struct RemoveOptions {
 #[derive(StructOpt)]
 pub struct RandomNumberOptions {
     #[structopt(long)]
-    pub low: i32,
+    low: i32,
     #[structopt(long)]
-    pub high: i32,
+    high: i32,
+}
+
+impl RandomNumberOptions {
+    pub fn get_low(&self) -> i32 {
+        self.low
+    }
+
+    pub fn get_high(&self) -> i32 {
+        self.high
+    }
 }
 
 pub fn add(folder: &str, args: &AddOptions) -> Result<()> {
